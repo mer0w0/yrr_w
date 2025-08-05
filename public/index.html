@@ -6,8 +6,8 @@
   <style>
     body {
       font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-      background-color: #f7f3ef; /* ベージュ背景 */
-      color: #4b2e2e; /* 濃い茶文字 */
+      background-color: #f7f3ef;
+      color: #4b2e2e;
       margin: 2rem;
       display: flex;
       flex-direction: column;
@@ -56,9 +56,47 @@
       font-size: 0.9rem;
       color: #8d6e63;
     }
+
+    footer a {
+      color: inherit;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+  <h1>ゆるるーわー</h1>
+
+  <form id="proxy-form">
+    <input type="text" id="url" placeholder="https://example.com" required>
+    <button type="submit">Go</button>
+  </form>
+
+  <footer>
+    © 2025 めろ / <a href="https://github.com/mer0w0" target="_blank">@mer0w0</a> All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('proxy-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const input = document.getElementById('url').value.trim();
+      if (!input.startsWith('http')) {
+        alert('URLは http または https から始めてください');
+        return;
+      }
+
+      const encoded = encodeURIComponent(input);
+      const target = `/go?url=${encoded}`; // ルートも /proxy → /go に変更想定
+
+      const win = window.open('about:blank');
+      if (win) {
+        win.location.replace(target);
+      } else {
+        alert('新しいタブを開けませんでした（ポップアップブロックの可能性）');
+      }
+    });
+  </script>
+</body>
+</html>
   <h1>ゆるるーわー</h1>
 
   <form id="proxy-form">
