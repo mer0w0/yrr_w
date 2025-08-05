@@ -28,3 +28,8 @@ URLを入力して「Go」ボタンを押すと、対象ページを新しいタ
 ```bash
 npm install
 npm start
+
+
+### 2. Renderでデプロイする場合
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mer0w0/yrr_w)
