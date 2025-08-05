@@ -28,7 +28,14 @@ URLを入力して「Go」ボタンを押すと、対象ページを新しいタ
 ```bash
 npm start
 ```
+4.ポートにリンクのところにリンクが出るのでそれをタップすれば使えます！
 
 ### 2. Renderでデプロイする場合
 
+1.Renderのアカウントを作成する（メアド必須）
+2.下のボタンを押す
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mer0w0/yrr_w)
+
+3:数分待てば完了！
+
