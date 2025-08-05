@@ -7,7 +7,6 @@
     body { font-family: sans-serif; margin: 2rem; }
     input { width: 300px; padding: 0.5rem; }
     button { padding: 0.5rem 1rem; }
-    iframe { width: 100%; height: 80vh; margin-top: 2rem; border: 1px solid #ccc; }
   </style>
 </head>
 <body>
@@ -17,21 +16,25 @@
     <button type="submit">Go</button>
   </form>
 
-  <iframe id="result" src="" style="display:none;"></iframe>
-
   <script>
-    const form = document.getElementById('proxy-form');
-    const iframe = document.getElementById('result');
-
-    form.addEventListener('submit', e => {
+    document.getElementById('proxy-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      const url = document.getElementById('url').value.trim();
-      if (!url.startsWith('http')) {
+      const input = document.getElementById('url').value.trim();
+      if (!input.startsWith('http')) {
         alert('URLは http または https から始めてください');
         return;
       }
-      iframe.src = `/proxy?url=${encodeURIComponent(url)}`;
-      iframe.style.display = 'block';
+
+      const encoded = encodeURIComponent(input);
+      const target = `/proxy?url=${encoded}`;
+
+      // 先に about:blank を開いて、そこに移動させる
+      const win = window.open('about:blank');
+      if (win) {
+        win.location.href = target;
+      } else {
+        alert('新しいタブを開けませんでした（ポップアップブロックされているかも）');
+      }
     });
   </script>
 </body>
