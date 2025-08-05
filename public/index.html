@@ -4,17 +4,71 @@
   <meta charset="UTF-8">
   <title>www.google.com</title>
   <style>
-    body { font-family: sans-serif; margin: 2rem; }
-    input { width: 300px; padding: 0.5rem; }
-    button { padding: 0.5rem 1rem; }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background-color: #f7f3ef; /* ベージュ背景 */
+      color: #4b2e2e; /* 濃い茶文字 */
+      margin: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #3e2723;
+    }
+
+    form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #c5a880;
+      border-radius: 6px;
+      background-color: #fffaf3;
+      color: #4b2e2e;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #6d4c41;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #5d4037;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #8d6e63;
+    }
   </style>
 </head>
 <body>
   <h1>ゆるるーわー</h1>
+
   <form id="proxy-form">
     <input type="text" id="url" placeholder="https://example.com" required>
     <button type="submit">Go</button>
   </form>
+
+  <footer>
+    なんか作れるかなーと（表示できないサイトもあります）
+  </footer>
 
   <script>
     document.getElementById('proxy-form').addEventListener('submit', function (e) {
@@ -28,14 +82,14 @@
       const encoded = encodeURIComponent(input);
       const target = `/proxy?url=${encoded}`;
 
-      // 先に about:blank を開いて、そこに移動させる
       const win = window.open('about:blank');
       if (win) {
         win.location.href = target;
       } else {
-        alert('新しいタブを開けませんでした（ポップアップブロックされているかも）');
+        alert('新しいタブを開けませんでした（ポップアップブロックの可能性）');
       }
     });
   </script>
 </body>
 </html>
+
