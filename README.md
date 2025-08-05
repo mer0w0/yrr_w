@@ -26,9 +26,8 @@ URLを入力して「Go」ボタンを押すと、対象ページを新しいタ
 3. ターミナルで以下を実行：
 
 ```bash
-npm install
 npm start
-
+```bash
 
 ### 2. Renderでデプロイする場合
 
