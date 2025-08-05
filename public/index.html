@@ -97,37 +97,3 @@
   </script>
 </body>
 </html>
-  <h1>ゆるるーわー</h1>
-
-  <form id="proxy-form">
-    <input type="text" id="url" placeholder="https://example.com" required>
-    <button type="submit">Go</button>
-  </form>
-
-  <footer>
-    © 2025 めろ/mer0w0 All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById('proxy-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const input = document.getElementById('url').value.trim();
-      if (!input.startsWith('http')) {
-        alert('URLは http または https から始めてください');
-        return;
-      }
-
-      const encoded = encodeURIComponent(input);
-      const target = `/proxy?url=${encoded}`;
-
-      const win = win.location.replace(target);
-      if (win) {
-        win.location.href = target;
-      } else {
-        alert('新しいタブを開けませんでした（ポップアップブロックの可能性）');
-      }
-    });
-  </script>
-</body>
-</html>
-
