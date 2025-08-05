@@ -82,7 +82,7 @@
       const encoded = encodeURIComponent(input);
       const target = `/proxy?url=${encoded}`;
 
-      const win = window.open('about:blank');
+      const win = win.location.replace(target);
       if (win) {
         win.location.href = target;
       } else {
