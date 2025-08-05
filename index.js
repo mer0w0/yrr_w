@@ -1,14 +1,14 @@
-app.use(express.static('public'));
-
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const { URL } = require('url');
 require('dotenv').config();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const app = express(); // ← ★ここでappを定義！
 
-// 🔁 URL動的プロキシ（認証なし）
+// 静的ファイルを公開（public/index.html）
+app.use(express.static('public'));
+
+// プロキシルート
 app.use('/proxy', (req, res, next) => {
   const targetUrl = req.query.url;
   if (!targetUrl) {
@@ -18,7 +18,6 @@ app.use('/proxy', (req, res, next) => {
   try {
     const parsedUrl = new URL(targetUrl);
 
-    // プロキシ作成＆即使用
     createProxyMiddleware({
       target: `${parsedUrl.protocol}//${parsedUrl.host}`,
       changeOrigin: true,
@@ -30,7 +29,8 @@ app.use('/proxy', (req, res, next) => {
   }
 });
 
-// 🟢 サーバ起動
+// サーバ起動
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Proxy (no-auth) running at http://localhost:${PORT}/proxy?url=...`);
+  console.log(`Proxy (no-auth) running at http://localhost:${PORT}/`);
 });
