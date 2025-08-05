@@ -37,6 +37,6 @@ npm start
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/mer0w0/yrr_w)
 
-3. 「Blueprint Name」に好きな名前を入れる
+3. 「Blueprint Name」に好きな名前を入れ、「Deploy Blueprint」を押す
 5. 数分待てば完了！
 
