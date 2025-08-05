@@ -1,7 +1,7 @@
 {
-  "name": "proxy-server",
+  "name": "yrr_w",
   "version": "1.0.0",
-  "description": "A simple self-use HTTP proxy using Express",
+  "description": "A simple & yuruyuru site",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
